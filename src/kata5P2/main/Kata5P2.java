@@ -1,12 +1,8 @@
 
 package kata5P2.main;
 
-
-import kata5P2.view.MailListReader;
-import kata5P2.view.HistogramDisplay;
-import kata5P2.view.MailHistogramBuilder;
-import kata5P2.model.Mail;
-import kata5P2.model.Histogram;
+import kata5P2.view.*;
+import kata5P2.model.*;
 
 public class Kata5P2 {
     
@@ -15,13 +11,13 @@ public class Kata5P2 {
     }
     
     public static void execute() {
-        Iterable<Mail> itMail = input("email.txt");
+        Iterable<Mail> itMail = input("mail.db");
         Histogram<String> histo = process(itMail);
         output(histo);
     }
     
-    public static Iterable<Mail> input(String fileName) {
-        Iterable<Mail> itMail = new MailListReader(fileName).mails();
+    public static Iterable<Mail> input(String dbName) {
+        Iterable<Mail> itMail = new MailListReaderDB(dbName).mails();
         return itMail;
     }
     
